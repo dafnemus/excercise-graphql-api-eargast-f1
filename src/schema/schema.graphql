@@ -19,7 +19,7 @@ type Race {
   name: String!
   circuit: Circuit!
   date: String!
-  time: String!
+  time: String
   round: String!
 }
 
