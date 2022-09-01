@@ -5,9 +5,16 @@ export class RacesData extends F1 {
     super();
   }
 
-  // async getRaces() {
-  //   return await this.get('reaces.json?limit=80', {
-  //     cacheOptions: { ttl: 60 },
-  //   });
-  // }
+  async getYear(year: string) {
+    const currentYear = new Date().getFullYear();
+    const firstYear = 1950;
+
+    if (isNaN(+year) || +year < firstYear || +year > currentYear) {
+      year = String(currentYear);
+    }
+
+    return await this.get(`${year}.json`, {
+      cacheOptions: { ttl: 60 },
+    });
+  }
 }
