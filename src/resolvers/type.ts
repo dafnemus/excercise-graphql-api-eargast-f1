@@ -16,8 +16,8 @@ const type: IResolvers = {
     location: (parent) => parent.Location,
   },
   Location: {
-    lng: (parent) => parent.long
-  }
+    lng: (parent) => parent.long,
+  },
 };
 
 export default type;
