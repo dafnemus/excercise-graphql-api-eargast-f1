@@ -18,9 +18,9 @@ const query: IResolvers = {
         .getYearRound(year, round)
         .then((data: any) => data.MRData.RaceTable.Races[0]);
     },
-    async driversList(_: void, __: any, { dataSources }) {
+    async driversList(_: void, { pageElement, page }, { dataSources }) {
       return await dataSources.drivers
-        .getDrivers()
+        .getDrivers(pageElement, page)
         .then((data: any) => data.MRData.DriverTable.Drivers);
     },
   },
