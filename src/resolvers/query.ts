@@ -33,6 +33,11 @@ const query: IResolvers = {
         .getDriversByYearAndRound(year, round)
         .then((data: any) => data.MRData.DriverTable.Drivers);
     },
+    async driverById(_: void, { id }, { dataSources }) {
+      return await dataSources.drivers
+        .getDriverById(id)
+        .then((data: any) => data.MRData.DriverTable.Drivers[0]);
+    },
   },
 };
 

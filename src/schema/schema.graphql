@@ -5,6 +5,7 @@ type Query {
   driversList(pageElement: Int, page: Int): [Driver!]!
   driversByYear(year: String!): [Driver!]!
   driversByYearAndRound(year: String!, round: Int!): [Driver!]!
+  driverById(id: String!): Driver!
 }
 
 type Mutation {
