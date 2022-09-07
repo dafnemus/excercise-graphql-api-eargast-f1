@@ -3,6 +3,7 @@ type Query {
   racesByYear(year: String!): [Race!]!
   raceSelect(year: String!, round: Int!): Race
   driversList(pageElement: Int, page: Int): [Driver!]!
+  driversByYear(year: String!): [Driver!]!
 }
 
 type Mutation {

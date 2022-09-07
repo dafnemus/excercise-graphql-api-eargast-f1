@@ -23,6 +23,11 @@ const query: IResolvers = {
         .getDrivers(pageElement, page)
         .then((data: any) => data.MRData.DriverTable.Drivers);
     },
+    async driversByYear(_: void, { year }, { dataSources }) {
+      return await dataSources.drivers
+        .getDriversByYear(year)
+        .then((data: any) => data.MRData.DriverTable.Drivers);
+    },
   },
 };
 
