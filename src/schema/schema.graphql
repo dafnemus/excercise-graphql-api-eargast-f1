@@ -62,7 +62,7 @@ type DriverStanding {
   points: String!
   wins: String!
   driver: Driver!
-  constructor: [Constructor!]!
+  constructors: [Constructors!]!
 }
 
 type Constructor {
