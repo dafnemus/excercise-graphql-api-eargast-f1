@@ -1,3 +1,4 @@
+import { DriversData } from './../data/data-drivers';
 import { IResolvers } from 'graphql-tools';
 
 const query: IResolvers = {
@@ -37,6 +38,14 @@ const query: IResolvers = {
       return await dataSources.drivers
         .getDriverById(id)
         .then((data: any) => data.MRData.DriverTable.Drivers[0]);
+    },
+    async seasonPilotsRanking(_: void, { year }, { dataSources }) {
+      return await dataSources.drivers
+        .getSeasonsPilotsRanking(year)
+        .then(
+          (data: any) =>
+            data.MRData.StandingsTable.StandingsLists[0].DriverStandings
+        );
     },
   },
 };
