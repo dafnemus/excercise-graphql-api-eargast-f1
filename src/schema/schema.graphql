@@ -6,6 +6,7 @@ type Query {
   driversByYear(year: String!): [Driver!]!
   driversByYearAndRound(year: String!, round: Int!): [Driver!]!
   driverById(id: String!): Driver!
+  seasonPilotsRanking(year: String!): [DriverStanding!]!
 }
 
 type Mutation {
@@ -53,4 +54,21 @@ type Driver {
   nationality: String!
   code: String
   permanentNumber: String
+}
+
+type DriverStanding {
+  position: String!
+  positionText: String!
+  points: String!
+  wins: String!
+  driver: Driver!
+  constructor: [Constructor!]!
+}
+
+type Constructor {
+  id: String!
+  url: String!
+  urlMobile: String!
+  name: String!
+  nationality: String!
 }
