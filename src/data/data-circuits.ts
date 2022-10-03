@@ -12,12 +12,17 @@ export class CircuitsData extends F1 {
         cacheOptions: { ttl: 60 },
       });
     }
-
     return await this.get(
       `circuits.json?${paginationOptions(pageElement, page)}`,
       {
         cacheOptions: { ttl: 60 },
       }
     );
+  }
+
+  async getCircuitById(id: string) {
+    return await this.get(`circuits/${id}.json?`, {
+      cacheOptions: { ttl: 60 },
+    });
   }
 }
