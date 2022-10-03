@@ -1,4 +1,3 @@
-import { DriversData } from './../data/data-drivers';
 import { IResolvers } from 'graphql-tools';
 
 const query: IResolvers = {
@@ -46,6 +45,11 @@ const query: IResolvers = {
           (data: any) =>
             data.MRData.StandingsTable.StandingsLists[0].DriverStandings
         );
+    },
+    async circuitsList(_: void, { pageElement, page }, { dataSources }) {
+      return await dataSources.circuits
+        .getCircuits(pageElement, page)
+        .then((data: any) => data.MRData.CircuitTable.Circuits);
     },
   },
 };

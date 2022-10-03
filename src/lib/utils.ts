@@ -21,3 +21,9 @@ export function checkRound(round: number) {
   }
   return firstRound;
 }
+
+export function paginationOptions(pageElement: number, page: number) {
+  const offset = (page - 1) * pageElement;
+  const limit = pageElement;
+  return `limit=${limit}&offset=${offset}`;
+}

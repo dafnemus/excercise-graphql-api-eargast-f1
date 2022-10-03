@@ -1,3 +1,4 @@
+import { paginationOptions } from '../lib/utils';
 import { F1 } from './data-source';
 
 export class CircuitsData extends F1 {
@@ -5,9 +6,18 @@ export class CircuitsData extends F1 {
     super();
   }
 
-  // async getSeasons() {
-  //   return await this.get('seasons.json?limit=80', {
-  //     cacheOptions: { ttl: 60 },
-  //   });
-  // }
+  async getCitcuits(pageElement: number = -1, page: number = 1) {
+    if (pageElement === -1) {
+      return await this.get('circuits.json?limit=1000', {
+        cacheOptions: { ttl: 60 },
+      });
+    }
+
+    return await this.get(
+      `circuits.json?${paginationOptions(pageElement, page)}`,
+      {
+        cacheOptions: { ttl: 60 },
+      }
+    );
+  }
 }
